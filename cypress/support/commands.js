@@ -1,28 +1,4 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This is will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+// Mortgage amounts and options commands
 
 Cypress.Commands.add("mortgage_values", (propValue, morValue, termLength) => {
     cy.get("#SearchPropertyValue").type(propValue);
@@ -63,4 +39,14 @@ Cypress.Commands.add("customerType", (value) => {
     { 
         cy.get("#selectorItemNationwideMortgageTypeNo2").click();
     }
+});
+
+
+//Filtering results custom commands
+Cypress.Commands.add("filterFeeFree", () => {
+    cy.get('#product-fee-fee').click();
+});
+
+Cypress.Commands.add("fixedRate", () => {
+    cy.get('#fixed').click();
 });

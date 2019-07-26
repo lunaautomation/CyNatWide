@@ -9,8 +9,8 @@ describe('Test', () => {
         cy.customerType('changing');
         cy.mortgage_values('300000','150000','30');
 
-        cy.get('#product-fee-fee').click();
-        cy.get('#fixed').click();
+        cy.filterFeeFree();
+        cy.fixedRate();        
 
         cy.get('div.ratesTableWrapper._2yr').should('be.visible')
         cy.get('div.ratesTableWrapper._3yr').should('be.visible')
