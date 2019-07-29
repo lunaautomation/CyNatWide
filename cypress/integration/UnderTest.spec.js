@@ -10,15 +10,16 @@ describe('Test', () => {
         cy.mortgage_values('300000','150000','30');
 
         cy.filterFeeFree();
-        cy.fixedRate();        
+        cy.fixedRate();      
+        
+        cy.waitForLoader();
 
-        cy.get('div.ratesTableWrapper._2yr').should('be.visible')
-        cy.get('div.ratesTableWrapper._3yr').should('be.visible')
-        cy.get('div.ratesTableWrapper._5yr').should('be.visible')
-        cy.get('div.ratesTableWrapper._10yr').should('be.visible')
+        cy.checkMortgageLengthVisible('2');
+        cy.checkMortgageLengthVisible('3');
+        cy.checkMortgageLengthVisible('5');
+        cy.checkMortgageLengthVisible('10');
 
         cy.get('#prod140573 > section:nth-child(3) > div > div.applyButton.doNotPrint > a').click({force:true});
-
         cy.get('h1.blue.boldText.headingSize02.center').should('have.text', 'Start your Remortgage application')
        });
 });

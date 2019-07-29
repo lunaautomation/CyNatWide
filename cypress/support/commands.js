@@ -1,6 +1,10 @@
-// Mortgage amounts and options commands
-`use strict`
+//Wait for loaders
 
+Cypress.Commands.add("waitForLoader", () => {
+    cy.get(".backgroundStyle05.searchOverlay").should("not.be.visible");
+});
+
+// Mortgage amounts and options commands
 Cypress.Commands.add("mortgage_values", (propValue, morValue, termLength) => {
     cy.get("#SearchPropertyValue").type(propValue);
     cy.get("#SearchMortgageAmount").type(morValue);
@@ -36,11 +40,15 @@ Cypress.Commands.add("customerType", (value) => {
 });
 
 
-//Filtering results custom commands
+//Filtering results and verifying
 Cypress.Commands.add("filterFeeFree", () => {
     cy.get('#product-fee-fee').click();
 });
 
 Cypress.Commands.add("fixedRate", () => {
     cy.get('#fixed').click();
+});
+
+Cypress.Commands.add("checkMortgageLengthVisible", (length) => {
+    cy.get(`div.ratesTableWrapper._${length}yr`).should('be.visible');
 });
