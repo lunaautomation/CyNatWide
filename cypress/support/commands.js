@@ -1,4 +1,5 @@
 // Mortgage amounts and options commands
+`use strict`
 
 Cypress.Commands.add("mortgage_values", (propValue, morValue, termLength) => {
     cy.get("#SearchPropertyValue").type(propValue);
@@ -20,14 +21,15 @@ Cypress.Commands.add("hasNationwideMortgage", (answer) => {
 });
 
 Cypress.Commands.add("customerType", (value) => {
-    Switch {
-     Case "new":
+    switch (value) 
+    {
+     case 'new':
         cy.get("#selectorItemNationwideMortgageTypeNo0").click();
         break;
-     Case "moving":
+     case 'moving':
         cy.get("#selectorItemNationwideMortgageTypeNo1").click();
         break;
-     Case "changing":
+     case 'changing':
         cy.get("#selectorItemNationwideMortgageTypeNo2").click();
         break;
     }

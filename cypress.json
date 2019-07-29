@@ -1,5 +1,11 @@
 {
     "viewportWidth":1280,
     "viewportHeight":720,
-    "video": false
+    "video": false,
+
+    "reporter": "junit",
+    "reporterOptions": {
+      "mochaFile": "cypress/results/my-test-output.xml",
+      "toConsole": true
+    }
 }
