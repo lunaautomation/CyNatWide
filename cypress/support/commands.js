@@ -16,28 +16,20 @@ Cypress.Commands.add("selectFromMortgages", (menuItem) => {
 });
 
 Cypress.Commands.add("hasNationwideMortgage", (answer) => {
-    if(answer)
-    {
-    cy.get("#selectorItemHaveNationwideMortgage0").click();
-    }
-    else
-    {
-    cy.get("#selectorItemHaveNationwideMortgage1").click();
-    }
+    (answer)? cy.get("#selectorItemHaveNationwideMortgage0").click() : cy.get("#selectorItemHaveNationwideMortgage1").click();
 });
 
 Cypress.Commands.add("customerType", (value) => {
-    if (value === "new")
-    {
+    Switch {
+     Case "new":
         cy.get("#selectorItemNationwideMortgageTypeNo0").click();
-    }
-    else if (value === "moving")
-    {
+        break;
+     Case "moving":
         cy.get("#selectorItemNationwideMortgageTypeNo1").click();
-    }
-    else if (value === "changing")
-    { 
+        break;
+     Case "changing":
         cy.get("#selectorItemNationwideMortgageTypeNo2").click();
+        break;
     }
 });
 
